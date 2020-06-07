@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FootBallGame.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>0A9F348D889770325E56F7627BCDB0C3C423EE65</string>
+				<key>dateExpires</key>
+				<string>5/30/21</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>ZB7NGT9A3Q.com.playground.TinyTD</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>ZB7NGT9A3Q</string>
+				<key>get-task-allow</key>
+				<true/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>ZB7NGT9A3Q.com.playground.TinyTD</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>FootBallGame.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>82dff2a9-7fec-4820-a6c0-0ced08158c50</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: com.playground.TinyTD</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>ZB7NGT9A3Q</string>
+				<key>name</key>
+				<string>SATYANANDA CORP</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
