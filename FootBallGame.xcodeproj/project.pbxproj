@@ -23,12 +23,12 @@
 		0486E3082400A8DB004F9FBF /* ShapeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486E3072400A8DB004F9FBF /* ShapeNode.swift */; };
 		0486E30A24032D12004F9FBF /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486E30924032D12004F9FBF /* Constraints.swift */; };
 		0486E30C24032D2E004F9FBF /* Constraints.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0486E30B24032D2E004F9FBF /* Constraints.sks */; };
+		10D63F3D248D9262005CF87F /* sadTrombone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10D63F3B248D9262005CF87F /* sadTrombone.mp3 */; };
+		10D63F3E248D9262005CF87F /* crowdCheer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10D63F3C248D9262005CF87F /* crowdCheer.mp3 */; };
 		BB44D8EF247B0B5C00B1C28E /* WinScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB44D8EE247B0B5C00B1C28E /* WinScene.sks */; };
 		BB44D8F1247B0B6C00B1C28E /* WinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB44D8F0247B0B6C00B1C28E /* WinScene.swift */; };
 		BB4642842481C27300285855 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB4642832481C27300285855 /* background.mp3 */; };
 		BB4642862481C36A00285855 /* background2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB4642852481C36A00285855 /* background2.mp3 */; };
-		BBE1549C248071650049F2B8 /* crowdCheer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BBE1549B248071640049F2B8 /* crowdCheer.mp3 */; };
-		BBE1549E2480716F0049F2B8 /* sadTrombone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BBE1549D2480716F0049F2B8 /* sadTrombone.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,12 +50,12 @@
 		0486E3072400A8DB004F9FBF /* ShapeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeNode.swift; sourceTree = "<group>"; };
 		0486E30924032D12004F9FBF /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		0486E30B24032D2E004F9FBF /* Constraints.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Constraints.sks; sourceTree = "<group>"; };
+		10D63F3B248D9262005CF87F /* sadTrombone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sadTrombone.mp3; sourceTree = "<group>"; };
+		10D63F3C248D9262005CF87F /* crowdCheer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crowdCheer.mp3; sourceTree = "<group>"; };
 		BB44D8EE247B0B5C00B1C28E /* WinScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WinScene.sks; sourceTree = "<group>"; };
 		BB44D8F0247B0B6C00B1C28E /* WinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScene.swift; sourceTree = "<group>"; };
 		BB4642832481C27300285855 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		BB4642852481C36A00285855 /* background2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background2.mp3; sourceTree = "<group>"; };
-		BBE1549B248071640049F2B8 /* crowdCheer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = crowdCheer.mp3; path = ../../crowdCheer.mp3; sourceTree = "<group>"; };
-		BBE1549D2480716F0049F2B8 /* sadTrombone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sadTrombone.mp3; path = ../../sadTrombone.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,10 +88,10 @@
 		046F3CFB23F0AC7100A20BB0 /* FootBallGame */ = {
 			isa = PBXGroup;
 			children = (
+				10D63F3C248D9262005CF87F /* crowdCheer.mp3 */,
+				10D63F3B248D9262005CF87F /* sadTrombone.mp3 */,
 				BB4642852481C36A00285855 /* background2.mp3 */,
 				BB4642832481C27300285855 /* background.mp3 */,
-				BBE1549B248071640049F2B8 /* crowdCheer.mp3 */,
-				BBE1549D2480716F0049F2B8 /* sadTrombone.mp3 */,
 				046F3CFC23F0AC7100A20BB0 /* AppDelegate.swift */,
 				046F3CFE23F0AC7100A20BB0 /* GameScene.sks */,
 				046F3D0223F0AC7100A20BB0 /* GameScene.swift */,
@@ -174,18 +174,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				046F3D0823F0AC7100A20BB0 /* Main.storyboard in Resources */,
-				BBE1549C248071650049F2B8 /* crowdCheer.mp3 in Resources */,
 				046F3CFF23F0AC7100A20BB0 /* GameScene.sks in Resources */,
 				046F3D0A23F0AC7200A20BB0 /* Assets.xcassets in Resources */,
 				046F3D1523F0BCDB00A20BB0 /* StartScene.sks in Resources */,
 				0428595C240C6FF2002526C5 /* GameOver.sks in Resources */,
 				BB4642842481C27300285855 /* background.mp3 in Resources */,
 				046F3D0D23F0AC7200A20BB0 /* LaunchScreen.storyboard in Resources */,
-				BBE1549E2480716F0049F2B8 /* sadTrombone.mp3 in Resources */,
+				10D63F3D248D9262005CF87F /* sadTrombone.mp3 in Resources */,
 				046F3D0123F0AC7100A20BB0 /* Actions.sks in Resources */,
 				0486E30C24032D2E004F9FBF /* Constraints.sks in Resources */,
 				0486E3062400A8C2004F9FBF /* ShapeNode.sks in Resources */,
 				BB44D8EF247B0B5C00B1C28E /* WinScene.sks in Resources */,
+				10D63F3E248D9262005CF87F /* crowdCheer.mp3 in Resources */,
 				BB4642862481C36A00285855 /* background2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +353,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZB7NGT9A3Q;
 				INFOPLIST_FILE = FootBallGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -371,6 +372,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZB7NGT9A3Q;
 				INFOPLIST_FILE = FootBallGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
