@@ -16,7 +16,7 @@ class StartScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let transition = SKTransition.doorsOpenHorizontal(withDuration: 1.0)
         if let gameScene = SKScene(fileNamed: "GameScene") {
-            gameScene.scaleMode = .aspectFill
+            gameScene.scaleMode = .fill
             self.view?.presentScene(gameScene, transition: transition)
         }
     }

@@ -8,7 +8,6 @@
 
 import SpriteKit
 import GameplayKit
-// in touches began check if football exists in the first location you touch. if it does make dragable true. 2. in touches moved only if dragable is true move the player's position to the current location that is touched on the screen. 3. In did end make dragable false.
 
 var score = 0
 
@@ -24,6 +23,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var audioNode: SKAudioNode?
     var didScoreChange = false
     var dragable = false
+    var opponentCount = 4
+    var opponentMaxTime = 2.3
+    var opponentMinTime = 0.5
     let textures = [SKTexture(imageNamed: "opponent-1"), SKTexture(imageNamed: "opponent-2"), SKTexture(imageNamed: "opponent-3"), SKTexture(imageNamed: "opponent-4")]
     
     fileprivate func backgroundMusic() {
@@ -32,6 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         backgroundNode.run(SKAction.play())
         audioNode = backgroundNode
     }
+    
     override func didMove(to view: SKView) {
         yardline = self.childNode(withName: "yardline") as? SKSpriteNode
         player = self.childNode(withName: "player") as? SKSpriteNode
@@ -41,9 +44,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel?.text = String(score )
         physicsWorld.contactDelegate = self
         backgroundMusic()
-        
+        updateGameParameters()
+        player?.size = CGSize(width: self.frame.width * 0.15, height: self.frame.width * 0.15)
         //creates 4 new nodes
-        for i in 1...4 {
+        for i in 1...opponentCount {
             let factor = 50
             var x = 0
             if i % 2 == 0 {
@@ -68,10 +72,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
-    
+    func updateGameParameters() {
+        switch score {
+        case ...0:
+            opponentCount = 4
+            opponentMaxTime = 2.5
+            opponentMinTime = 0.7
+        case 0...3:
+            opponentCount = 5
+            opponentMaxTime = 2.3
+            opponentMinTime = 0.5
+        case 4...9:
+            opponentCount = 6
+            opponentMaxTime = 2.0
+            opponentMinTime = 0.3
+        case 10...:
+            opponentCount = 7
+            opponentMaxTime = 1.8
+            opponentMinTime = 0.25
+        default:
+            opponentCount = 5
+            opponentMaxTime = 2.3
+            opponentMinTime = 0.5
+        }
+    }
     func createOpponent(x: Int, y: Int) -> SKSpriteNode? {
         // makes copies of the opponent
         let node = opponent?.copy() as? SKSpriteNode
+        node?.size = CGSize (width: self.frame.width * 0.175, height: self.frame.width * 0.175)
         //sets the position of the node in a way that it can be changed in another function without coming back here.
         node?.position = CGPoint(x: x, y: y)
         //checking for existence of node
@@ -128,7 +156,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     // checks for existence of opponent
                     for opponent in opponents {
                         // generates a random number
-                        let randomNumber = Double.random(in: 0.5...2.3)
+                        let randomNumber = Double.random(in: opponentMinTime...opponentMaxTime)
                         // moves the opponent to the player
                         let action = SKAction.move(to: location, duration: TimeInterval(randomNumber))
                         opponent.run(action)
@@ -162,7 +190,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // transitioning out of the scene back to the start scene
             let transition = SKTransition.doorsCloseHorizontal(withDuration: 1.0)
             if let winScene = SKScene(fileNamed: "WinScene"){
-                winScene.scaleMode = .aspectFill
+                winScene.scaleMode = .fill
                 self.view?.presentScene(winScene, transition: transition)
             }
             //checking if there is contact between player and opponent
@@ -181,12 +209,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //makes didScoreChange true
             didScoreChange = true
             //transitioning to original gameScene
-           
+            
             audioNode?.run(SKAction.stop())
             
             let transition = SKTransition.doorsCloseHorizontal(withDuration: 1.0)
             if let gameOver = SKScene(fileNamed: "GameOver"){
-                gameOver.scaleMode = .aspectFill
+                gameOver.scaleMode = .fill
                 self.view?.presentScene(gameOver, transition: transition)
                 
             }
