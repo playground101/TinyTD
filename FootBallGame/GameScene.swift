@@ -75,25 +75,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func updateGameParameters() {
         switch score {
         case ...0:
-            opponentCount = 4
-            opponentMaxTime = 2.5
-            opponentMinTime = 0.7
+          opponentCount = 4
+          opponentMaxTime = 2.5
+          opponentMinTime = 0.4
         case 0...3:
-            opponentCount = 5
-            opponentMaxTime = 2.3
-            opponentMinTime = 0.5
+          opponentCount = 5
+          opponentMaxTime = 2.0
+          opponentMinTime = 0.3
         case 4...9:
-            opponentCount = 6
-            opponentMaxTime = 2.0
-            opponentMinTime = 0.3
+          opponentCount = 6
+          opponentMaxTime = 1.5
+          opponentMinTime = 0.2
         case 10...:
-            opponentCount = 7
-            opponentMaxTime = 1.8
-            opponentMinTime = 0.25
+          opponentCount = 7
+          opponentMaxTime = 1.0
+          opponentMinTime = 0.1
         default:
-            opponentCount = 5
-            opponentMaxTime = 2.3
-            opponentMinTime = 0.5
+          opponentCount = 5
+          opponentMaxTime = 2.3
+          opponentMinTime = 0.5
         }
     }
     func createOpponent(x: Int, y: Int) -> SKSpriteNode? {
