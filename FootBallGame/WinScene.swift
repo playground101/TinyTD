@@ -12,7 +12,7 @@ import SpriteKit
 class WinScene: SKScene {
     
     override func didMove(to view: SKView) {
-        let actionSound = SKAction.playSoundFileNamed("crowdCheer.mp3", waitForCompletion: false)
+        let actionSound = SKAction.playSoundFileNamed("newCrowdCheer.mp3", waitForCompletion: false)
         let transitionAction = SKAction.run {
             self.transition()
         }

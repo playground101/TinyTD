@@ -25,6 +25,7 @@
 		0486E30C24032D2E004F9FBF /* Constraints.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0486E30B24032D2E004F9FBF /* Constraints.sks */; };
 		10D63F3D248D9262005CF87F /* sadTrombone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10D63F3B248D9262005CF87F /* sadTrombone.mp3 */; };
 		10D63F3E248D9262005CF87F /* crowdCheer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10D63F3C248D9262005CF87F /* crowdCheer.mp3 */; };
+		BB17F60B249FF91C009E047C /* newCrowdCheer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB17F60A249FF91B009E047C /* newCrowdCheer.mp3 */; };
 		BB44D8EF247B0B5C00B1C28E /* WinScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB44D8EE247B0B5C00B1C28E /* WinScene.sks */; };
 		BB44D8F1247B0B6C00B1C28E /* WinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB44D8F0247B0B6C00B1C28E /* WinScene.swift */; };
 		BB4642842481C27300285855 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BB4642832481C27300285855 /* background.mp3 */; };
@@ -52,6 +53,7 @@
 		0486E30B24032D2E004F9FBF /* Constraints.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Constraints.sks; sourceTree = "<group>"; };
 		10D63F3B248D9262005CF87F /* sadTrombone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sadTrombone.mp3; sourceTree = "<group>"; };
 		10D63F3C248D9262005CF87F /* crowdCheer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crowdCheer.mp3; sourceTree = "<group>"; };
+		BB17F60A249FF91B009E047C /* newCrowdCheer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = newCrowdCheer.mp3; sourceTree = "<group>"; };
 		BB44D8EE247B0B5C00B1C28E /* WinScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WinScene.sks; sourceTree = "<group>"; };
 		BB44D8F0247B0B6C00B1C28E /* WinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScene.swift; sourceTree = "<group>"; };
 		BB4642832481C27300285855 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				10D63F3C248D9262005CF87F /* crowdCheer.mp3 */,
+				BB17F60A249FF91B009E047C /* newCrowdCheer.mp3 */,
 				10D63F3B248D9262005CF87F /* sadTrombone.mp3 */,
 				BB4642852481C36A00285855 /* background2.mp3 */,
 				BB4642832481C27300285855 /* background.mp3 */,
@@ -183,6 +186,7 @@
 				10D63F3D248D9262005CF87F /* sadTrombone.mp3 in Resources */,
 				046F3D0123F0AC7100A20BB0 /* Actions.sks in Resources */,
 				0486E30C24032D2E004F9FBF /* Constraints.sks in Resources */,
+				BB17F60B249FF91C009E047C /* newCrowdCheer.mp3 in Resources */,
 				0486E3062400A8C2004F9FBF /* ShapeNode.sks in Resources */,
 				BB44D8EF247B0B5C00B1C28E /* WinScene.sks in Resources */,
 				10D63F3E248D9262005CF87F /* crowdCheer.mp3 in Resources */,
