@@ -17,7 +17,7 @@ class WinScene: SKScene {
             self.transition()
         }
         if mute {
-            let action = SKAction.sequence([SKAction.wait(forDuration: 1.0)])
+            let action = SKAction.sequence([SKAction.wait(forDuration: 1.0), transitionAction])
             self.run(action)
         } else {
             let action = SKAction.sequence ([actionSound, SKAction.wait(forDuration: 1.0), transitionAction])

@@ -29,12 +29,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var opponentMinTime = 0.5
     let textures = [SKTexture(imageNamed: "opponent-1"), SKTexture(imageNamed: "opponent-2"), SKTexture(imageNamed: "opponent-3"), SKTexture(imageNamed: "opponent-4")]
     
+    fileprivate func setSoundStatus() {
+        if mute == false {
+            audioNode?.run(SKAction.play())
+            muteButtonNode?.texture = SKTexture(imageNamed: "mic")
+        } else {
+            audioNode?.run(SKAction.stop())
+            muteButtonNode?.texture = SKTexture(imageNamed: "mute")
+        }
+    }
     
     fileprivate func backgroundMusic() {
         let backgroundNode = SKAudioNode(fileNamed: "background.mp3")
         self.addChild(backgroundNode)
-        backgroundNode.run(SKAction.play())
+        backgroundNode.run(SKAction.stop())
         audioNode = backgroundNode
+        setSoundStatus()
     }
     
     override func didMove(to view: SKView) {
@@ -46,9 +56,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         muteButtonNode = self.childNode(withName: "muteButtonNode") as? SKSpriteNode
         scoreLabel?.text = String(score )
         physicsWorld.contactDelegate = self
-        if mute == false {
-            backgroundMusic()
-        }
+        backgroundMusic()
         updateGameParameters()
         player?.size = CGSize(width: self.frame.width * 0.15, height: self.frame.width * 0.15)
         //creates 4 new nodes
@@ -80,25 +88,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func updateGameParameters() {
         switch score {
         case ...0:
-          opponentCount = 4
-          opponentMaxTime = 2.5
-          opponentMinTime = 0.4
+            opponentCount = 4
+            opponentMaxTime = 2.5
+            opponentMinTime = 0.4
         case 0...3:
-          opponentCount = 5
-          opponentMaxTime = 2.0
-          opponentMinTime = 0.3
+            opponentCount = 5
+            opponentMaxTime = 2.0
+            opponentMinTime = 0.3
         case 4...9:
-          opponentCount = 6
-          opponentMaxTime = 1.5
-          opponentMinTime = 0.2
+            opponentCount = 6
+            opponentMaxTime = 1.5
+            opponentMinTime = 0.2
         case 10...:
-          opponentCount = 7
-          opponentMaxTime = 1.0
-          opponentMinTime = 0.1
+            opponentCount = 7
+            opponentMaxTime = 1.0
+            opponentMinTime = 0.1
         default:
-          opponentCount = 5
-          opponentMaxTime = 2.3
-          opponentMinTime = 0.5
+            opponentCount = 5
+            opponentMaxTime = 2.3
+            opponentMinTime = 0.5
         }
     }
     func createOpponent(x: Int, y: Int) -> SKSpriteNode? {
@@ -130,14 +138,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     //mute or unmute the sound
                     if mute {
                         mute = false
-                        muteButtonNode?.texture = SKTexture(imageNamed: "mic")
-                        audioNode?.run(SKAction.play())
+                        
                     } else {
                         mute = true
-                        muteButtonNode?.texture = SKTexture(imageNamed: "mute")
-                        audioNode?.run(SKAction.stop())
-
                     }
+                    setSoundStatus()
                 }
             }
         }
@@ -240,6 +245,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
 }
-
 
 

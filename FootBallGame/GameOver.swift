@@ -14,8 +14,14 @@ class GameOver: SKScene {
         let transitionAction = SKAction.run {
             self.transition()
         }
-        let action = SKAction.sequence([actionSound, SKAction.wait(forDuration: 1.0), transitionAction])
-        self.run(action)
+        if mute {
+            let action = SKAction.sequence([SKAction.wait(forDuration: 1.0), transitionAction])
+            self.run(action)
+        } else {
+            let action = SKAction.sequence([actionSound, SKAction.wait(forDuration: 1.0), transitionAction])
+            self.run(action)
+        }
+        
     }
 
     fileprivate func transition() {
