@@ -16,10 +16,14 @@ class WinScene: SKScene {
         let transitionAction = SKAction.run {
             self.transition()
         }
-        let action = SKAction.sequence ([actionSound, SKAction.wait(forDuration: 1.0), transitionAction])
-         self.run(action)
+        if mute {
+            let action = SKAction.sequence([SKAction.wait(forDuration: 1.0)])
+            self.run(action)
+        } else {
+            let action = SKAction.sequence ([actionSound, SKAction.wait(forDuration: 1.0), transitionAction])
+            self.run(action)
+        }
     }
-    
     fileprivate func transition() {
         let transition = SKTransition.doorsCloseHorizontal(withDuration: 1.0)
         if let gameScene = SKScene(fileNamed: "GameScene") {

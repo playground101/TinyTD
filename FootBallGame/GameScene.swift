@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 
 var score = 0
-
+var mute = false
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var yardline: SKSpriteNode?
@@ -19,6 +19,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var opponent: SKSpriteNode?
     var opponents: [SKSpriteNode] = []
     var touchDown: SKSpriteNode?
+    var muteButtonNode: SKSpriteNode?
     var scoreLabel: SKLabelNode?
     var audioNode: SKAudioNode?
     var didScoreChange = false
@@ -27,6 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var opponentMaxTime = 2.3
     var opponentMinTime = 0.5
     let textures = [SKTexture(imageNamed: "opponent-1"), SKTexture(imageNamed: "opponent-2"), SKTexture(imageNamed: "opponent-3"), SKTexture(imageNamed: "opponent-4")]
+    
     
     fileprivate func backgroundMusic() {
         let backgroundNode = SKAudioNode(fileNamed: "background.mp3")
@@ -41,9 +43,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         touchDown = self.childNode(withName: "touchDown") as? SKSpriteNode
         opponent = self.childNode(withName: "opponent") as? SKSpriteNode
         scoreLabel = self.childNode(withName: "scoreLabel") as? SKLabelNode
+        muteButtonNode = self.childNode(withName: "muteButtonNode") as? SKSpriteNode
         scoreLabel?.text = String(score )
         physicsWorld.contactDelegate = self
-        backgroundMusic()
+        if mute == false {
+            backgroundMusic()
+        }
         updateGameParameters()
         player?.size = CGSize(width: self.frame.width * 0.15, height: self.frame.width * 0.15)
         //creates 4 new nodes
@@ -119,6 +124,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             for node in nodes {
                 if node.name == "player" {
                     dragable = true
+                }
+                if node.name == "muteButtonNode" {
+                    // when button is touched, toggles picture
+                    //mute or unmute the sound
+                    if mute {
+                        mute = false
+                        muteButtonNode?.texture = SKTexture(imageNamed: "mic")
+                        audioNode?.run(SKAction.play())
+                    } else {
+                        mute = true
+                        muteButtonNode?.texture = SKTexture(imageNamed: "mute")
+                        audioNode?.run(SKAction.stop())
+
+                    }
                 }
             }
         }
