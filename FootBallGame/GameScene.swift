@@ -31,6 +31,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     fileprivate func setSoundStatus() {
         if mute == false {
+            if audioNode == nil {
+                backgroundMusic()
+            }
             audioNode?.run(SKAction.play())
             muteButtonNode?.texture = SKTexture(imageNamed: "mic")
         } else {
@@ -40,6 +43,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     fileprivate func backgroundMusic() {
+        if mute {
+            muteButtonNode?.texture = SKTexture(imageNamed: "mute")
+            return
+        }
         let backgroundNode = SKAudioNode(fileNamed: "background.mp3")
         self.addChild(backgroundNode)
         backgroundNode.run(SKAction.stop())
