@@ -9,8 +9,9 @@
 import SpriteKit
 import GameplayKit
 
-var score = 0
+var playerScore = 0
 var mute = false
+var opponentScore = 0
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var yardline: SKSpriteNode?
@@ -22,6 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var muteButtonNode: SKSpriteNode?
     var scoreLabel: SKLabelNode?
     var audioNode: SKAudioNode?
+    var opponentScoreLabel: SKLabelNode?
     var didScoreChange = false
     var dragable = false
     var opponentCount = 4
@@ -61,7 +63,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         opponent = self.childNode(withName: "opponent") as? SKSpriteNode
         scoreLabel = self.childNode(withName: "scoreLabel") as? SKLabelNode
         muteButtonNode = self.childNode(withName: "muteButtonNode") as? SKSpriteNode
-        scoreLabel?.text = String(score )
+        opponentScoreLabel = self.childNode(withName: "opponentScoreLabel") as? SKLabelNode
+        opponentScoreLabel?.text = String(opponentScore)
+        scoreLabel?.text = String(playerScore )
         physicsWorld.contactDelegate = self
         backgroundMusic()
         updateGameParameters()
@@ -93,7 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     func updateGameParameters() {
-        switch score {
+        switch playerScore - opponentScore {
         case ...0:
             opponentCount = 4
             opponentMaxTime = 2.5
@@ -209,10 +213,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // checking if didScoreChange is false
             if didScoreChange == false {
                 //adding 1 to the score
-                score += 1
+                playerScore += 1
                 // changing what appears on the scoreLabel
-                scoreLabel?.text = String(score)
-                print(score)
+                scoreLabel?.text = String(playerScore)
+                print(playerScore)
             }
             // makes didScoreChange from false to true
             didScoreChange = true
@@ -232,10 +236,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // checking id didScoreChange is false
             if didScoreChange == false {
                 // subtracting 1 from the score
-                score -= 1
+                opponentScore += 1
                 //changing what is on the scoreLabel
-                scoreLabel?.text = String(score)
-                print(score)
+                opponentScoreLabel?.text = String(opponentScore)
+                print(opponentScore)
             }
             //makes didScoreChange true
             didScoreChange = true
